@@ -10,7 +10,7 @@ This Flutter application allows users to generate school ID cards with customiza
 - Generates ID cards with a unique design for each student.
 - Uses the `cached_network_image` package for validating image URLs.
 
-<p align = "center"><img src = 'assets/screenshots/id_card_form.png' height = "600" width = "300" style="margin-right: 20px"><img src = 'assets/screenshots/generated_id_card_pdf.jpg' height = "600" width = "300" style="margin-right: 20px"></p>
+<p align = "center"><img src = 'assets/screenshots/id_card_form.png' height = "600" width = "300" style="margin-right: 20px"><img src = 'assets/screenshots/generated_id_card_pdf.jpg' height = "600" width = "300"></p>
 
 ## Flow 
 1. The user fills in the required details for the ID card, such as school name, student name, admission number, etc.
