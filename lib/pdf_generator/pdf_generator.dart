@@ -97,7 +97,7 @@ Future<void> generateIdCard(
       path: PdfPath()..addEllipse(const Rect.fromLTWH(55, 108, 100, 100)));
   page.graphics.drawImage(image, const Rect.fromLTWH(55, 108, 100, 100));
   page.graphics.restore();
-  await saveAndLaunchFile(document.saveSync(), 'Invoice.pdf');
+  await saveAndLaunchFile(document.saveSync(), 'StudentIdCard.pdf');
   document.dispose();
 }
 
