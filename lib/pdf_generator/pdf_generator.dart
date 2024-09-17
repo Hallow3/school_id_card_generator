@@ -1,5 +1,4 @@
 import 'package:flutter/services.dart';
-import 'package:http/http.dart';
 import 'package:school_id_card_generator/save_file/save_file_mobile.dart';
 import 'package:syncfusion_flutter_pdf/pdf.dart';
 
@@ -30,10 +29,11 @@ Future<void> generateIdCard(
 
   final PdfPage page = document.pages.add();
   const txtFont = PdfFontFamily.helvetica;
+
   final txtColor = PdfColor(255, 255, 255);
-  var response = await get(Uri.parse(imageUrl));
-  var imageData = response.bodyBytes;
-  PdfBitmap image = PdfBitmap(imageData);
+  final ByteData imageData =
+      await rootBundle.load('assets/images/ems_id_bg.png');
+  PdfBitmap image = PdfBitmap(imageData.buffer.asUint8List());
 
   page.graphics.drawImage(
       PdfBitmap(await readBgImage()),
@@ -46,8 +46,8 @@ Future<void> generateIdCard(
   //     PdfStandardFont(txtFont, 6, style: PdfFontStyle.bold),
   //     bounds: const Rect.fromLTWH(40, 37, 0, 0),
   //     brush: PdfSolidBrush(txtColor));
-  page.graphics.drawString(schoolPlace,
-      PdfStandardFont(txtFont, 3, style: PdfFontStyle.bold),
+  page.graphics.drawString(
+      schoolPlace, PdfStandardFont(txtFont, 3, style: PdfFontStyle.bold),
       bounds: const Rect.fromLTWH(40, 39, 0, 0),
       brush: PdfSolidBrush(PdfColor(199, 200, 201)));
   page.graphics.drawString("$schoolPin(pin) $schoolDist (Dist).$schoolState.",
